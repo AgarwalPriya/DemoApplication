@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">DemoApp</string>
+    <string name="main_app_desc">Please select a scenario for demo from the sliding menu</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="mock_app">Mock Application</string>
+    <string name="mail">priyanka.agarwal@wipro.com</string>
+
+    <string name="action_close">Exit App</string>
+    <string name="red_btn_text">Red</string>
+    <string name="blue_btn_text">Blue</string>
+    <string name="green_btn_text">Green</string>
+    <string name="selected">Selected\u0020</string>
+    <string name="tab_item">TAB ITEM</string>
+    <string name="ui_app_name">UI Design</string>
+
+    <string name="route_app_name">Route Navigation</string>
+    <string name="spinner_prompt">Place</string>
+    <string name="transport_text">Mode of Transport</string>
+    <string name="car">Car</string>
+    <string name="train">Train</string>
+    <string name="nav_btn_text">Navigate</string>
+    <string name = "dest_text">Select Destination :</string>
+    <string name="select">Select</string>
+    <string name="loading">Please wait...</string>
+    <string name="alert_title">Error</string>
+    <string name="alert_message">Please check the network</string>
+    <string name="ok">OK</string>
+
+</resources>

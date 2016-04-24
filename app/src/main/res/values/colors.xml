@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="oliveGreen"> #7F667C26</color>
+    <color name="turquoise"> #43C6DB </color>
+    <color name="lightCoral"> #E77471</color>
+    <color name="indianRed"> #7FF75D59</color>
+    <color name="lightGray"> #6D7B8D </color>
+    <color name="steelBlue"> #7F4863A0 </color>
+    <color name="gray0"> #7F150517 </color>
+    <color name="lemonChiffon"> #7FC9C299 </color>
+    <color name="lightBlue"> #7FAFDCEC </color>
+    <color name="seaGreen"> #7F4E8975 </color>
+    <color name="darkGray"> #7F4E4848 </color>
+    <color name="khaki"> #7FC9BE62 </color>
+    <color name="lightGray0"> #AFC7C7 </color>
+
+</resources>

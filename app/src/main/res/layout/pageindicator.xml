@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/circle_indicator"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:gravity="center">
+    <ImageView
+        android:id="@+id/circleicon"
+        android:layout_width="16px"
+        android:layout_height="16px"
+        android:adjustViewBounds="false"
+        android:gravity="center"
+        android:src="@drawable/page_indicator_bg"
+        android:background="@null" >
+    </ImageView>
+</RelativeLayout>
