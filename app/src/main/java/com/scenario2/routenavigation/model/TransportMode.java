@@ -8,9 +8,7 @@ public class TransportMode {
     private String train;
 
     //Constructor
-    public TransportMode(String carDetails, String trainDetails) {
-        this.car = carDetails;
-        this.train = trainDetails;
+    public TransportMode() {
     }
 
     public String getCarDetails() {
@@ -19,6 +17,11 @@ public class TransportMode {
 
     public String getTrainDetails() {
         return train;
+    }
+
+    @Override
+    public String toString() {
+        return "car: "+car + " & " +"train: "+ train;
     }
 
 }

@@ -6,7 +6,7 @@ package com.scenario2.routenavigation.model;
 public class TransportationDetails {
     private String id;
     private String name;
-    private TransportMode modeofTransport;
+    private TransportMode fromcentral ;
     private ItemLocation location;
 
     //Constructor
@@ -17,30 +17,20 @@ public class TransportationDetails {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-    public TransportMode getTransportMode() {
-        return modeofTransport;
-    }
-
-    public void setTransportMode(TransportMode modeofTransport) {
-        this.modeofTransport = modeofTransport;
-    }
-
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public TransportMode getTransportMode() {
+        return fromcentral;
     }
 
     public ItemLocation getLocation() {
         return location;
     }
 
-    public void setLocation(ItemLocation location) {
-        this.location = location;
+    @Override
+    public String toString() {
+        return id + " - " + name + " - (" + fromcentral + ") "+ " - (" + location + ")";
     }
 }

@@ -106,6 +106,30 @@ public class TransportActivity extends AppCompatActivity implements GetTDetailsT
         });
     }
 
+    /**
+     * populate the items in the spinner
+     * by setting the respective adapter for it
+     */
+    private void setSpinner() {
+        ArrayList<String> list = new ArrayList();
+        ArrayAdapter<String> dataAdapter;
+        /* Add first item as "Select" in the spinner */
+        list.add(getString(R.string.select));
+        for (String name : mTransportationMap.keySet()) {
+            /** Add all the keys in the list from the transportationMap object
+             * i.e., name of the places
+             */
+            if (name != null)
+                list.add(name);
+        }
+        dataAdapter = new ArrayAdapter<String>
+                (this, android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource
+                (android.R.layout.simple_spinner_dropdown_item);
+        /* set adapter for the spinner */
+        mSpinner.setAdapter(dataAdapter);
+    }
+
     private void updateUI(boolean show, TransportationDetails slectedDetails) {
         if (!show) {
             /** hide car, train layout and
@@ -126,7 +150,7 @@ public class TransportActivity extends AppCompatActivity implements GetTDetailsT
                  * else show the details
                  */
                 if (mCarLayout != null) {
-                    if (slectedDetails.getTransportMode().getCarDetails().equals("")) {
+                    if (slectedDetails.getTransportMode().getCarDetails() == null) {
                         mCarLayout.setVisibility(View.GONE);
                     } else {
                         mCarLayout.setVisibility(View.VISIBLE);
@@ -138,7 +162,7 @@ public class TransportActivity extends AppCompatActivity implements GetTDetailsT
                  * else show the details
                  */
                 if (mTrainLayout != null) {
-                    if (slectedDetails.getTransportMode().getTrainDetails().equals("")) {
+                    if (slectedDetails.getTransportMode().getTrainDetails()== null) {
                         mTrainLayout.setVisibility(View.GONE);
                     } else {
                         mTrainLayout.setVisibility(View.VISIBLE);
@@ -149,28 +173,7 @@ public class TransportActivity extends AppCompatActivity implements GetTDetailsT
             }
         }
     }
-    /**
-     * populate the items in the spinner
-     * by setting the respective adapter for it
-     */
-    private void setSpinner() {
-        ArrayList<String> list = new ArrayList();
-        ArrayAdapter<String> dataAdapter;
-        /* Add first item as "Select" in the spinner */
-        list.add(getString(R.string.select));
-        for (String name : mTransportationMap.keySet()) {
-            /** Add all the keys in the list from the transportationMap object
-             * i.e., name of the places
-             */
-            list.add(name);
-        }
-        dataAdapter = new ArrayAdapter<String>
-                (this, android.R.layout.simple_spinner_item, list);
-        dataAdapter.setDropDownViewResource
-                (android.R.layout.simple_spinner_dropdown_item);
-        /* set adapter for the spinner */
-        mSpinner.setAdapter(dataAdapter);
-    }
+
 
     /**
      * on click listener for navigation button
@@ -186,8 +189,8 @@ public class TransportActivity extends AppCompatActivity implements GetTDetailsT
              *  with latitude and longitude set to that of the selected item's location object
              */
             view.setEnabled(true);
-            if (selectedItemDetail.getLocation().getLatitude().equals("") ||
-                    selectedItemDetail.getLocation().getLongitude().equals("")) {
+            if (selectedItemDetail.getLocation().getLatitude() == null ||
+                    selectedItemDetail.getLocation().getLongitude() == null) {
                 Log.e(TAG, "Latitude/Longitude not available for the selected item");
                 return;
             }

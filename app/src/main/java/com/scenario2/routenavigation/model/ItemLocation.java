@@ -8,9 +8,7 @@ public class ItemLocation {
     private String longitude;
 
     //Constructor
-    public ItemLocation(String latitude, String longitude) {
-        this.latitude = latitude;
-        this.longitude = longitude;
+    public ItemLocation() {
     }
 
     public String getLatitude() {
@@ -21,4 +19,8 @@ public class ItemLocation {
         return longitude;
     }
 
+    @Override
+    public String toString() {
+        return "lat: "+latitude + " & " + "long: "+longitude;
+    }
 }
