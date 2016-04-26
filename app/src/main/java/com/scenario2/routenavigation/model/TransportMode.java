@@ -1,4 +1,4 @@
-package com.scenario2.routenavigation;
+package com.scenario2.routenavigation.model;
 
 /**
  * Class to save the mode of transport available for an item in the json

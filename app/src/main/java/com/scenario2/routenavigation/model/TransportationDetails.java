@@ -1,4 +1,4 @@
-package com.scenario2.routenavigation;
+package com.scenario2.routenavigation.model;
 
 /**
  * Class to save each item in JSON, as an object

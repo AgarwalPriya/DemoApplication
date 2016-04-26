@@ -16,5 +16,6 @@
     <color name="darkGray"> #7F4E4848 </color>
     <color name="khaki"> #7FC9BE62 </color>
     <color name="lightGray0"> #AFC7C7 </color>
+    <color name="gray_bg">#77aaaaaa</color>
 
 </resources>

@@ -11,8 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.scenario1.uidesign.UIDesignActivity;
-import com.scenario2.routenavigation.TransportActivity;
+import com.scenario1.uidesign.activities.UIDesignActivity;
+import com.scenario2.routenavigation.activities.TransportActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

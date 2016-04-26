@@ -1,7 +1,8 @@
-package com.scenario1.uidesign;
+package com.scenario1.uidesign.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
@@ -14,6 +15,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.app.demoapp.R;
+import com.scenario1.uidesign.viewAdapter.ViewPagerAdapter;
+import com.scenario1.uidesign.viewFragments.PageFragment1;
+import com.scenario1.uidesign.viewFragments.PageFragment2;
+import com.scenario1.uidesign.viewFragments.PageFragment3;
+import com.scenario1.uidesign.viewFragments.PageFragment4;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UIDesignActivity extends FragmentActivity {
 
@@ -88,11 +97,12 @@ public class UIDesignActivity extends FragmentActivity {
          */
         ViewPager mPager = (ViewPager) findViewById(R.id.view_pager);
         /* The pager adapter, which provides the pages to the view pager widget.*/
-        ViewPagerAdapter mPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        ViewPagerAdapter mPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(),getFragments());
         if (mPager != null) {
 
             if (mPagerAdapter != null) {
                 mPagerAdapter.setNumberOfPages(NUM_OF_PAGES);
+                List<Fragment> fragments = getFragments();
                 mPager.setAdapter(mPagerAdapter);
             }
              /* set margin between fragment pages, to make it distinguishable */
@@ -130,6 +140,14 @@ public class UIDesignActivity extends FragmentActivity {
                 }
             });
         }
+    }
+    private List<Fragment> getFragments() {
+        List<Fragment> fList = new ArrayList<Fragment>();
+        fList.add(PageFragment1.newInstance("FirstFragment"));
+        fList.add(PageFragment2.newInstance("SecondFragment"));
+        fList.add(PageFragment3.newInstance("ThirdFragment"));
+        fList.add(PageFragment4.newInstance("FourthFragment"));
+        return fList;
     }
 
     /**

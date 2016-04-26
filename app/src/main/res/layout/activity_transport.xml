@@ -3,42 +3,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.scenario2.routenavigation.TransportActivity"
-    android:padding="10dp"
+    tools:context="com.scenario2.routenavigation.activities.TransportActivity"
+    android:padding="@dimen/trspt_layout_padding"
     android:layout_centerHorizontal="true"
     android:backgroundTint="@android:color/darker_gray">
     <TextView
         android:id="@+id/text_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/trspt_margin_top"
         android:text="@string/dest_text"
         android:textStyle="bold"
-        android:layout_marginBottom="5dp"
-        android:paddingTop="3dp"
-        android:paddingBottom="3dp"
+        android:layout_marginBottom="@dimen/trspt_margin_bottom"
+        android:paddingTop="@dimen/trspt_padding_top_bottom"
+        android:paddingBottom="@dimen/trspt_padding_top_bottom"
         android:textSize="16sp"
-        android:background="#77aaaaaa"/>
+        android:background="@color/gray_bg"/>
     <Spinner
         android:id="@+id/place_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:prompt="@string/spinner_prompt"
         android:layout_below="@id/text_label"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="@dimen/trspt_margin_top"/>
     <TextView
         android:id="@+id/transport_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/place_spinner"
         android:text="@string/transport_text"
-        android:layout_marginTop="30dp"
-        android:paddingTop="3dp"
-        android:paddingBottom="3dp"
+        android:layout_marginTop="@dimen/trspt_layout_margintop"
+        android:paddingTop="@dimen/trspt_padding_top_bottom"
+        android:paddingBottom="@dimen/trspt_padding_top_bottom"
         android:gravity="center_vertical|left"
         android:textStyle="bold"
         android:textSize="16sp"
-        android:background="#77aaaaaa"/>
+        android:background="@color/gray_bg"/>
 
     <LinearLayout
         android:id="@+id/car_info"
@@ -47,18 +47,19 @@
         android:layout_below="@id/transport_text"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:weightSum="1.0">
+        android:layout_marginTop="@dimen/trspt_margin_top"
+        android:weightSum="1.0"
+        android:visibility="gone">
         <TextView
             android:id="@+id/car_label"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zero_width"
             android:layout_height="wrap_content"
             android:text="@string/car"
             android:gravity="center_vertical|left"
             android:layout_weight="0.2"/>
         <TextView
             android:id="@+id/car_detail"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zero_width"
             android:layout_height="wrap_content"
             android:gravity="center_vertical|left"
             android:layout_weight="0.8"/>
@@ -71,18 +72,19 @@
         android:layout_below="@id/car_info"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:weightSum="1.0">
+        android:layout_marginTop="@dimen/trspt_margin_top"
+        android:weightSum="1.0"
+        android:visibility="gone">
         <TextView
             android:id="@+id/train_label"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zero_width"
             android:layout_height="wrap_content"
             android:text="@string/train"
             android:gravity="center_vertical|left"
             android:layout_weight="0.2"/>
         <TextView
             android:id="@+id/train_detail"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zero_width"
             android:layout_height="wrap_content"
             android:gravity="center_vertical|left"
             android:layout_weight="0.8"/>
@@ -95,6 +97,7 @@
         android:text="@string/nav_btn_text"
         android:layout_below="@id/train_info"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:onClick="navOnClick"/>
+        android:layout_marginTop="@dimen/trspt_layout_margintop"
+        android:onClick="navOnClick"
+        android:enabled="false"/>
 </RelativeLayout>

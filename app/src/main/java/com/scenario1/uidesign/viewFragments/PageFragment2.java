@@ -1,4 +1,4 @@
-package com.scenario1.uidesign;
+package com.scenario1.uidesign.viewFragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.demoapp.Constants;
 import com.app.demoapp.R;
 
 /**
@@ -21,14 +22,14 @@ public class PageFragment2 extends Fragment {
 
         frag_textView = (TextView) frag_view.findViewById(R.id.tvFrag2);
 
-        frag_textView.setText(getArguments().getString("msg"));
+        frag_textView.setText(getArguments().getString(Constants.FRAG_MSG));
         frag_view.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
                Toast.makeText(v.getContext(),
-                        getString(R.string.selected)+ getArguments().getString("msg"), Toast.LENGTH_SHORT).show();
+                        getString(R.string.selected)+ getArguments().getString(Constants.FRAG_MSG), Toast.LENGTH_SHORT).show();
             }
         });
         return frag_view;
@@ -38,7 +39,7 @@ public class PageFragment2 extends Fragment {
 
         PageFragment2 f = new PageFragment2();
         Bundle b = new Bundle();
-        b.putString("msg", text);
+        b.putString(Constants.FRAG_MSG, text);
         f.setArguments(b);
         return f;
     }

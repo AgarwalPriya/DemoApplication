@@ -1,4 +1,4 @@
-package com.scenario2.routenavigation;
+package com.scenario2.routenavigation.model;
 
 /**
  * Class to save the latitude and longitude of the item in json

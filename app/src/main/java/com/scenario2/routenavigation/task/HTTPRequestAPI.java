@@ -1,4 +1,4 @@
-package com.scenario2.routenavigation;
+package com.scenario2.routenavigation.task;
 
 import android.os.Environment;
 import android.util.Log;
@@ -62,9 +62,9 @@ public class HTTPRequestAPI {
                     }
                     br.close();
                     // End reading
-                    /*Save the downloaded json to a file on physical memory,
-                    **so that download operation is not performed each time
-                    */
+                    /**Save the downloaded json to a file on physical memory,
+                     *so that download operation is not performed each time
+                     */
                     saveJson(sb.toString());
                     return sb.toString();
                 default:
@@ -95,7 +95,7 @@ public class HTTPRequestAPI {
     private static void saveJson(String jsonString) {
         if (jsonString != null) {
             byte[] jsonBytesArray = jsonString.getBytes();
-            /* if external storage is not available, then return*/
+            /* if external storage is not available, then return, no need to notify user about this background work failure*/
             if (!isExternalStorageAvailable()) {
                 Log.e(TAG, "External Storage not available");
                 return;
