@@ -57,9 +57,7 @@ public class UIDesignActivity extends FragmentActivity {
      */
     private void setupTablayout() {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-
         if (tabLayout != null) {
-            tabLayout.setTabGravity(TabLayout.MODE_SCROLLABLE);
             for (int i = 1; i <= NUM_OF_TABS; i++) {
                 tabLayout.addTab(tabLayout.newTab()
                         .setText(getString(R.string.tab_item)+ i));

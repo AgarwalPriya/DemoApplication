@@ -19,4 +19,5 @@
     <dimen name="trspt_margin_bottom">5dp</dimen>
     <dimen name="trspt_layout_margintop">30dp</dimen>
     <dimen name="trspt_layout_padding">10dp</dimen>
+    <dimen name="tab_max_width">100dp</dimen>
 </resources>

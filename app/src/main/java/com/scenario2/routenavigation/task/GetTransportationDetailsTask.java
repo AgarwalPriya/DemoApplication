@@ -1,14 +1,13 @@
 package com.scenario2.routenavigation.task;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.app.demoapp.Constants;
+import com.scenario2.routenavigation.caching.JsonLruCache;
 import com.scenario2.routenavigation.model.TransportationDetails;
-import com.scenario2.routenavigation.utilities.StorageUtility;
 
 import java.util.HashMap;
-
-import static com.app.demoapp.Constants.FILE_NAME;
 
 /**
  * Async task to download json file from the URL and
@@ -34,14 +33,14 @@ public class GetTransportationDetailsTask extends AsyncTask<String, String, Hash
          */
         HashMap<String,TransportationDetails> map = null;
         String jsonString;
-        jsonString = StorageUtility.getDetailsFromMemory(FILE_NAME);
+        jsonString = JsonLruCache.getInstance().getJsonFromMemCache(Constants.CACHE_KEY);
         if (jsonString == null) {
             jsonString = HTTPRequestAPI.getData(Constants.DOWNLOAD_URL);
         }
         /*..........Process JSON DATA................*/
-        if(jsonString != null) {
-            map = new JSONProcess().processJsonData(jsonString);
-        }
+        map = new JSONProcess().processJsonData(jsonString);
+
+
         return map;
     }
     @Override

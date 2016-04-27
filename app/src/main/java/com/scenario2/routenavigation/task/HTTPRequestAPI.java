@@ -1,13 +1,11 @@
 package com.scenario2.routenavigation.task;
 
-import android.os.Environment;
 import android.util.Log;
 
-import java.io.BufferedOutputStream;
+import com.app.demoapp.Constants;
+import com.scenario2.routenavigation.caching.JsonLruCache;
+
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -22,17 +20,16 @@ import java.net.URL;
 public class HTTPRequestAPI {
     private static String TAG = "HTTPRequestAPI";
     private static int TIMEOUT = 30000;
-    private static String FILE_NAME = "TransportationJson.txt";
 
     /**
      * Download the json file from the URL
      * and save it in the memory for later use,
      * to avoid repeated downloading overhead
-     *
      * @param server_url
      * @return jsonString
      */
     public static String getData(String server_url) {
+        Log.e(TAG,"JSON not available in the cache, download from the URL");
         /** TO-DO
          * Need to re-load the json using e-tag ,
          * so that the json used is updated periodically
@@ -62,10 +59,10 @@ public class HTTPRequestAPI {
                     }
                     br.close();
                     // End reading
-                    /**Save the downloaded json to a file on physical memory,
+                    /**Save the downloaded json to the LRU cache,
                      *so that download operation is not performed each time
                      */
-                    saveJson(sb.toString());
+                    JsonLruCache.getInstance().addJsonToMemoryCache(Constants.CACHE_KEY,sb.toString());
                     return sb.toString();
                 default:
                     Log.e(TAG, "Error retrieving JSON");
@@ -85,48 +82,5 @@ public class HTTPRequestAPI {
             }
         }
         return null;
-    }
-
-    /**
-     * Method to save the downloaded json String
-     * as text file on the sd-card/physical memory
-     * @param jsonString
-     */
-    private static void saveJson(String jsonString) {
-        if (jsonString != null) {
-            byte[] jsonBytesArray = jsonString.getBytes();
-            /* if external storage is not available, then return, no need to notify user about this background work failure*/
-            if (!isExternalStorageAvailable()) {
-                Log.e(TAG, "External Storage not available");
-                return;
-            }
-            File fileToSaveJson = new File(Environment.getExternalStorageDirectory(), FILE_NAME);
-            BufferedOutputStream bos;
-            try {
-                bos = new BufferedOutputStream(new FileOutputStream(fileToSaveJson));
-                bos.write(jsonBytesArray);
-                bos.flush();
-                bos.close();
-                Log.d(TAG, "File written");
-            } catch (FileNotFoundException e) {
-                Log.e(TAG, "FileNotFoundException " + e);
-                e.printStackTrace();
-            } catch (IOException e) {
-                Log.e(TAG, "IOException " + e);
-                e.printStackTrace();
-            } finally {
-                jsonBytesArray = null;
-                System.gc();
-            }
-        }
-    }
-
-    /**
-     * Check if external storage is available for read and write
-     * @return boolean
-     */
-    private static boolean isExternalStorageAvailable() {
-        String state = Environment.getExternalStorageState();
-        return Environment.MEDIA_MOUNTED.equals(state);
     }
 }
